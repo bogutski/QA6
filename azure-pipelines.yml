@@ -12,10 +12,13 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '12.x'
+    versionSpec: '12.14.0'
   displayName: 'Install Node.js'
 
 - script: |
-    npm install
-    npx wdio wdio.conf.js --suite qa6
+    npm i
   displayName: 'npm install and build'
+
+- script: |
+    npm run qa6
+  displayName: 'npm test'
